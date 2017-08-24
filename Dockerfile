@@ -1,7 +1,8 @@
 FROM alpine:3.5
 LABEL maintainer "Alexandre Punch <punch.alexandre@gmail.com>"
 LABEL caddy_version="0.10.5" architecture="amd64"
-ARG plugins=http.git RUN apk add --no-cache openssh-client git tar curl
+ARG plugins=http.git
+RUN apk add --no-cache openssh-client git tar curl
 RUN curl --silent --show-error --fail --location \
       --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
       "https://caddyserver.com/download/linux/amd64?plugins=${plugins}" \
