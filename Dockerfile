@@ -9,7 +9,8 @@ RUN curl --silent --show-error --fail --location \
     | tar --no-same-owner -C /usr/bin/ -xz caddy \
  && chmod 0755 /usr/bin/caddy \
  && /usr/bin/caddy -version
-EXPOSE 80 443 2015 VOLUME /root/.caddy
+EXPOSE 80 443 2015
+VOLUME /root/.caddy
 WORKDIR /srv
 COPY Caddyfile /etc/Caddyfile
 COPY index.html /srv/index.html
